@@ -23,7 +23,7 @@ def put_appsettings(metadata: Metadata, project_name: str, file_name: str):
 class Plugin(Template):
     def post_hook(self, metadata: Metadata):
         project_name = metadata.global_inputs['project_name']
-        using = f"using StackSpot.Queue.SQS;\n"
+        using = f"using StackSpot.Queue.Sqs;\n"
         service = f"services.AddSQS(configuration, environment);"
         
         put_appsettings(metadata, project_name, 'appsettings.json')
