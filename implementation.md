@@ -1,6 +1,4 @@
-# Implementação
-
-### 1. Inputs
+#### **Inputs**
 
 * RegionEndpoint - Endpoint regional que será utilizado para requisitar o SQS - Campo Obrigatório.
 
@@ -12,7 +10,7 @@ Você pode sobrescrever a configuração padrão adicionando a seção `Sqs` em 
   }
 ```
   
-### 2. Configurações
+#### **Configurações**
 
 Adicione ao seu `IServiceCollection` via `services.AddSQS()` no `Startup` da aplicação ou `Program` tendo como parametro de entrada `IConfiguration` e `IWebHostEnvironment`. 
 
@@ -20,7 +18,7 @@ Adicione ao seu `IServiceCollection` via `services.AddSQS()` no `Startup` da apl
 services.AddSQS(Configuration, Env);
 ```
 
-### 3. Implementação
+#### **Implementação**
 
 * A  classe da mensagem que será integrada na fila, deverá herdar da classe `MessageBase` e decorada com `Queue`, especificando o nome e o tipo da fila, que pode ser Standard ou Fifo.
 * Enqueue - Publica uma mensagem na fila. Filas do tipo Fifo, possuem um identificador único.
@@ -113,7 +111,7 @@ solicitações após serem recuperadas por um ReceiveMessage.
     }
 ```
 
-### 4. Ambiente local
+#### Ambiente local
 
 * Esta etapa não é obrigatória.
 * Recomendamos, para o desenvolvimento local, a criação de um contâiner com a imagem do [Localstack](https://github.com/localstack/localstack). 
