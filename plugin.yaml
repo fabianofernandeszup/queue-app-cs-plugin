@@ -1,5 +1,5 @@
 name: queue-app-cs-plugin
-description: Plug-in to consume AWS SQS.
+description: Plug-in para instrumentar o AWS SQS.
 types:
 - app
 inputs:

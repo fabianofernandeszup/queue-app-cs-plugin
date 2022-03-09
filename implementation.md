@@ -9,8 +9,6 @@ Você pode sobrescrever a configuração padrão adicionando a seção `Sqs` em 
       "RegionEndpoint": "us-east-1"
   }
 ```
-  
-#### **Configurações**
 
 Adicione ao seu `IServiceCollection` via `services.AddSQS()` no `Startup` da aplicação ou `Program` tendo como parametro de entrada `IConfiguration` e `IWebHostEnvironment`. 
 
@@ -18,15 +16,13 @@ Adicione ao seu `IServiceCollection` via `services.AddSQS()` no `Startup` da apl
 services.AddSQS(Configuration, Env);
 ```
 
-#### **Implementação**
+A  classe da mensagem que será integrada na fila, deverá herdar da classe `MessageBase` e decorada com `Queue`, especificando o nome e o tipo da fila, que pode ser Standard ou Fifo.
+- Enqueue - Publica uma mensagem na fila. Filas do tipo Fifo, possuem um identificador único.
+- Dequeue - Remove uma mensagem da fila.
+- Receive - Retorna uma mensagem da fila.
+- ReceiveMessages - Retorna uma lista de mensagens da fila.
 
-* A  classe da mensagem que será integrada na fila, deverá herdar da classe `MessageBase` e decorada com `Queue`, especificando o nome e o tipo da fila, que pode ser Standard ou Fifo.
-* Enqueue - Publica uma mensagem na fila. Filas do tipo Fifo, possuem um identificador único.
-* Dequeue - Remove uma mensagem da fila.
-* Receive - Retorna uma mensagem da fila.
-* ReceiveMessages - Retorna uma lista de mensagens da fila.
-
-* Metodo que retorna uma mensagem utilizando o Receive.
+Metodo que retorna uma mensagem utilizando o Receive.
 
 ```csharp
     [Queue("Test", QueueType.Standard)]
@@ -61,9 +57,9 @@ services.AddSQS(Configuration, Env);
     }
 ```
 
-* Metodo que retorna uma lista de mensagens utilizando o ReceiveMessages.
+Metodo que retorna uma lista de mensagens utilizando o ReceiveMessages.
 
-* Paramentros do MessageRequest
+Paramentros do MessageRequest
 
 `MaxNumberOfMessages` O número máximo de mensagens a serem retornadas. O Amazon SQS nunca retorna mais mensagens do que
 este valor (no entanto, menos mensagens podem ser retornadas). Valores válidos: 1 a 10. Padrão:1.
@@ -113,10 +109,10 @@ solicitações após serem recuperadas por um ReceiveMessage.
 
 #### Ambiente local
 
-* Esta etapa não é obrigatória.
-* Recomendamos, para o desenvolvimento local, a criação de um contâiner com a imagem do [Localstack](https://github.com/localstack/localstack). 
-* Para o funcionamento local você deve preencher a variável de ambiente `LOCALSTACK_CUSTOM_SERVICE_URL` com o valor da url do serviço. O valor padrão do localstack é http://localhost:4566.
-* Abaixo um exemplo de arquivo `docker-compose` com a criação do contâiner: 
+- Esta etapa não é obrigatória.
+- Recomendamos, para o desenvolvimento local, a criação de um contâiner com a imagem do [Localstack](https://github.com/localstack/localstack). 
+- Para o funcionamento local você deve preencher a variável de ambiente `LOCALSTACK_CUSTOM_SERVICE_URL` com o valor da url do serviço. O valor padrão do localstack é http://localhost:4566.
+- Abaixo um exemplo de arquivo `docker-compose` com a criação do contâiner: 
 
 ```yaml
     version: '2.1'
