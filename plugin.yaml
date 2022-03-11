@@ -8,7 +8,7 @@ inputs:
   name: region_endpoint
   default: "sa-east-1"
 
-displayName: Queue - Plugin
+displayName: Queue
 
 picture: "plugin.png"
 
