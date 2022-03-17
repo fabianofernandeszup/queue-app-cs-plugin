@@ -130,6 +130,6 @@ solicitações após serem recuperadas por um ReceiveMessage.
 
 Após a criação do contâiner, crie uma fila para realizar os testes com o componente. Recomendamos que você tenha instalado em sua estação o [AWS CLI](https://aws.amazon.com/pt/cli/). Abaixo um exemplo de comando para criação de uma fila:
 
-```
-    aws --endpoint-url=http://localhost:4566 --region=sa-east-1 sqs create-queue --queue-name [NOME DA SUA FILA]
+```bash
+    aws --endpoint-url=http://localhost:4566 --region=us-east-1 sqs create-queue --queue-name [NOME DA SUA FILA]
 ```
