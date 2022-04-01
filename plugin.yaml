@@ -8,6 +8,37 @@ inputs:
   name: region_endpoint
   default: "sa-east-1"
 
+hooks:
+#package
+  - type: run
+    trigger: before-render
+    commands:
+      - dotnet add src/{{global_inputs.project_name}}.Application package StackSpot.Queue.SQS
+      - dotnet add src/{{global_inputs.project_name}}.Infrastructure package StackSpot.Queue.SQS
+#dependencyinjection
+  - type: edit
+    trigger: before-render
+    path: "src/{{project_name}}.Application/Common/StackSpot/DependencyInjection.cs"
+    changes:
+      - search:
+          string: "using"
+          insert-before:
+            value: "using StackSpot.Queue.Sqs;"
+          when:
+            not-exists: "using StackSpot.Queue.Sqs;"
+      - search:
+          string: "return services"
+          insert-before:
+            value: "services.AddSQS(configuration, environment);\n"
+          when:
+            not-exists: "services.AddSQS(configuration, environment);"
+#format
+  - type: run
+    trigger: after-render
+    working-dir: src/{{project_name}}.Application
+    commands:
+      -  dotnet dotnet-format --include-generated
+
 displayName: Queue
 
 picture: "plugin.png"
