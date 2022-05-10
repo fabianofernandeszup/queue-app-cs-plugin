@@ -1,7 +1,7 @@
-- **Descrição:** O plugin queue-app-cs-plugin adiciona a capacidade de provisionar o uso da Amazon Simple Queue Service (SQS). 
+**Descrição:** O plugin **`queue-app-cs-plugin`** adiciona a capacidade de provisionar o uso da Amazon Simple Queue Service (SQS). 
 
 - **Categoria:** Queue. 
-- **Stack:** dotnet.
+- **Stack:** DotNET.
 - **Criado em:** 03/02/2022. 
 - **Última atualização:** 03/02/2022.
 - **Download:** https://github.com/stack-spot/queue-app-cs-plugin.git.
@@ -10,17 +10,18 @@
 ## **Visão Geral**
 ### **queue-app-cs-plugin**
 
-O **queue-app-cs-plugin** adiciona em uma stack a capacidade de provisionar o uso da Amazon Simple Queue Service (SQS) seja consumindo ou produzindo mensagens na fila.
+O **`queue-app-cs-plugin`** adiciona em uma stack a capacidade de provisionar o uso da Amazon Simple Queue Service (SQS), seja consumindo ou produzindo mensagens na fila.
 
 ## **Uso**
 
 ### **Pré-requisitos**
-Para utilizar esse plugin, é necessário ter uma stack dotnet criada pelo cli.
+Para utilizar esse plugin, é necessário ter uma stack DotNET criada pela STK CLI.
 
 ### **Instalação**
-Para fazer o download do **queue-app-cs-plugin**, siga os passos abaixo:
+Para fazer o download do **`queue-app-cs-plugin`**, siga o passo abaixo:
 
-**Passo 1.** Copie e cole a URL abaixo no seu navegador/terminal:
+Copie e cole a URL abaixo no seu navegador/terminal:  
+
 ```
 https://github.com/stack-spot/queue-app-cs-plugin.git
 ```
